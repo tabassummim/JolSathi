@@ -107,7 +107,7 @@ offline:'অফলাইন',online:'অনলাইন',goOff:'অফলাই�
 households:'পরিবার',daysLeft:'দিনের পানি বাকি',iss_ars_r:'আর্সেনিক ৫০ µg/L-এর বেশি',iss_ars_y:'আর্সেনিক ২৫–৪৯ µg/L',iss_germ:'জীবাণু পাওয়া গেছে',iss_salt_r:'পান করার জন্য খুব লবণাক্ত',iss_salt_y:'লবণ বাড়ছে',iss_bank_r:'পানির ব্যাংক প্রায় খালি',iss_bank_y:'পানির ব্যাংক কমছে',iss_filt_r:'ফিল্টার বন্ধ',iss_filt_y:'ফিল্টার ধীর',iss_pond:'পুকুর লবণাক্ত বা ঘোলা: ভালভ বন্ধ রাখুন'}};
 
 /* ---------- demo data ---------- */
-const KEY='jolsathi_demo_v1';
+const KEY='jolsathi_demo_v2';
 function demo(){
  const mk=(id,dist,ct,inf,rec,days,flow,t,lab,reg)=>({id,dist,ct,inf,rec,days,flow,tests:[t],lab:lab?[lab]:[],hh:reg,orders:[],levyJars:0,tasks:[]});
  const t=(ec,ntu,pond,vial,ars)=>({date:'This week',ec,ntu,pond,vial,ars});
@@ -123,6 +123,7 @@ function demo(){
  return {lang:'en',role:null,site:null,tab:0,off:false,min:false,sites:s,paid:[{n:'Rahima',a:4333,f:'Monthly pay'}],nextId:10};
 }
 let S;try{S=JSON.parse(localStorage.getItem(KEY))||demo()}catch(e){S=demo()}
+Object.assign(S,{role:null,site:null,tab:0,hsite:null});
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const t=k=>(T[S.lang][k]??T.en[k]??k);
 const site=()=>S.sites.find(x=>x.id===S.site);
@@ -175,8 +176,7 @@ function pick(){navs(null);return `<div class="c"><h3>${t('pick')}</h3>${S.sites
 function family(){const s=site(),st=status(s);navs([['🏠','home'],['🫙','jars'],['৳','moneyT']]);
  if(S.tab===0){const x=s.tests[s.tests.length-1],me=s.hh[12]||{used:60},msg={GREEN:'safe',YELLOW:'limit',RED:'stop'}[st.c],ic={GREEN:'✓',YELLOW:'!',RED:'✕'}[st.c];
   const near=S.sites.filter(o=>o.id!==s.id&&status(o).c==='GREEN'&&o.dist===s.dist)[0]||S.sites.find(o=>status(o).c==='GREEN');
-  return `<div class="c"><div class="big" style="background:${C[st.c]}">${ic}</div><div class="state">${t(msg)}</div>
-  <div class="sm mut" style="text-align:center">${s.days} ${t('daysLeft')}</div>${st.iss.map(i=>`<div class="note w" style="margin-top:8px">${t(i[1])}</div>`).join('')}</div>
+  const pct=Math.min(100,s.days/60*100);return `<div class="c"><div class="row"><svg width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="46" fill="none" stroke="#E3E7EA" stroke-width="12"/><circle cx="56" cy="56" r="46" fill="none" stroke="${C[st.c]}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${pct*2.89} 289" transform="rotate(-90 56 56)"/><text x="56" y="58" text-anchor="middle" font-size="28" font-weight="800">${s.days}</text><text x="56" y="76" text-anchor="middle" font-size="10" fill="#555">${S.lang==="bn"?"দিন":"days"}</text></svg><div><span class="chip" style="background:${C[st.c]}">${ic} ${t(st.c)}</span><div class="state" style="text-align:left;margin-top:6px">${t(msg)}</div></div></div>${st.iss.map(i=>`<div class="note w" style="margin-top:8px">${t(i[1])}</div>`).join('')}</div>
   ${st.c==='RED'?`<div class="c"><h3>${t('safeHere')}</h3><div class="it"><span class="dot" style="background:var(--green)"></span><div class="f"><b>${near.id}</b> <span class="sm mut">· ${near.dist}</span></div></div><div class="it">🚲<div class="f sm">${t('vendorDel')}</div></div></div>`:''}
   <div class="c"><h3>${t('tested')}</h3><div class="row">${[['salt',x.ec<1500],['germs',x.vial!=='b'],['ars',(st.ars||0)<25]].map(([k,ok])=>`<span class="chip" style="background:${ok?'var(--green)':'var(--red)'}">${ok?'✓':'✕'} ${t(k)}</span>`).join('')}</div></div>
   <div class="c"><div class="row sp"><h3 style="margin:0">${t('share')}</h3><b>105 L</b></div><div class="sm mut" style="margin:4px 0 8px">${t('perDay')}</div><div class="bar"><i style="width:${Math.min(100,me.used/105*100)}%"></i></div><div class="sm mut" style="margin-top:6px">${me.used} L ${t('used')}</div></div>
@@ -203,7 +203,7 @@ function caretaker(){const s=site();navs([['📋','today'],['🧪','tests'],['�
   <div style="margin-top:12px"><button class="btn" onclick="saveTest()">${t('save')}</button></div></div>`}
  const tp=S.paid.filter(p=>p.n===s.ct&&p.f!=='Monthly pay').reduce((a,p)=>a+p.a,0);
  return `<div class="c" style="text-align:center"><div class="sm mut">${t('monthly')}</div><div style="font-size:32px;font-weight:800">Tk 4,333</div><div class="sm mut">Tk 52,000 / year</div></div>
- <div class="c row sp"><div>${t('taskPay')}</div><b>Tk ${tp}</b></div><div class="note">${t('minNote')}</div>`}
+ <div class="c"><div class="row sp"><h3 style="margin:0">${t('taskPay')}</h3><b>Tk ${tp}</b></div>${s.tasks.map(x=>`<div class="it"><div class="f sm">${x.title||'Meter readings'}</div><span class="chip" style="background:${x.st==='paid'?'var(--green)':'var(--yellow)'}">${x.st==='paid'?'paid':'checking'}</span></div>`).join('')}</div><div class="note">${t('minNote')}</div>`}
 let V='y';function vial(v){V=v;$('vy').classList.toggle('on',v==='y');$('vb').classList.toggle('on',v==='b')}
 function saveTest(){const s=site(),n=id=>+$(id).value;const x={date:'Now',ec:n('ec'),ntu:n('ntu'),pond:n('pond'),vial:V,ars:n('ars'),q:isOff()?'pending':'sent'};
  s.tests.push(x);s.lab=[];const bal=n('win')*s.rec-n('wout');s.days=Math.max(5,Math.round(s.days+bal/(capOf(s)*0.015)));
@@ -215,7 +215,7 @@ function addTask(photo){const s=site(),d=new Date();const x={id:S.nextId++,title
 
 function supervisor(){navs([['✅','approve'],['🔬','lab'],['👪','hh']]);
  if(S.tab===0){const w=[];S.sites.forEach(s=>s.tasks.filter(x=>x.st==='done'&&x.q==='sent').forEach(x=>w.push([s,x])));
-  return `<div class="c"><h3>${t('toCheck')}</h3>${w.length?w.map(([s,x])=>`<div style="border-bottom:1px solid var(--line);padding:10px 0"><div class="row">${x.photo?`<img class="thumb" src="${x.photo}">`:'📸'}<div class="f"><b>${x.title||'Meter readings'}</b><div class="sm mut">${s.id} · ${s.ct} · ${x.ts} · ${x.gps}</div></div></div>
+  return `<div class="c"><h3>${t('toCheck')}</h3>${w.length?w.map(([s,x])=>`<div style="border-bottom:1px solid var(--line);padding:10px 0"><div class="row">${x.photo?`<img class="thumb" src="${x.photo}">`:'📸'}<div class="f"><b>${x.title||'Meter readings'}</b><div class="sm mut">${s.id} · ${s.ct}</div></div></div><div class="sm" style="margin-top:6px">📍 ${x.gps} ✓ &nbsp; 🕒 ${x.ts} ✓ &nbsp; ${s.id==='SAT-07'||s.id==='KHU-09'?'📡 sensor ✓':'👀 spot check'}</div>
   <div class="row" style="margin-top:8px"><button class="btn sm o" onclick="back2(${x.id})">${t('sendBack')}</button><button class="btn sm" style="flex:1" onclick="approveT('${s.id}',${x.id})">${t('spot')} · ${t('approvePay')}</button></div></div>`).join(''):`<div class="sm mut">${t('nothing')}</div>`}</div>`}
  if(S.tab===1)return `<div class="c"><h3>${t('labT')}</h3><label>${t('site')}</label><select id="ls">${S.sites.map(s=>`<option>${s.id}</option>`).join('')}</select>
   <label>${t('ars')} (µg/L)</label><input id="la" type="number" value="62"><label>${t('coli')}</label><input id="lc" type="number" value="0">
@@ -239,6 +239,7 @@ function deliver(i){const s=site(),o=s.orders[i];o.st='done';s.levyJars+=o.jars;
 
 function hub(){navs(null);const st=S.sites.map(s=>[s,status(s)]),n=c=>st.filter(x=>x[1].c===c).length;
  return `<div class="row">${['GREEN','YELLOW','RED'].map(c=>`<div class="c" style="flex:1;text-align:center;padding:10px"><b style="font-size:28px;color:${C[c]}">${n(c)}</b><div class="sm mut">${t(c)}</div></div>`).join('')}</div>
+ <div class="c"><svg viewBox="0 0 360 150" width="100%"><rect x="2" y="2" width="356" height="146" rx="12" fill="#E3F8FA"/>${['Satkhira','Khulna','Bagerhat'].map((d,i)=>`<text x="${60+i*120}" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#555">${d}</text>`+(i?`<line x1="${i*120}" y1="10" x2="${i*120}" y2="140" stroke="#9EECF2" stroke-width="2"/>`:'')).join('')}${st.map(([s2,x],k)=>{const i=['Satkhira','Khulna','Bagerhat'].indexOf(s2.dist),j=st.filter(q=>q[0].dist===s2.dist).indexOf(st[k]);return `<circle cx="${40+i*120+j*40}" cy="${70+j*30}" r="11" fill="${C[x.c]}" stroke="#fff" stroke-width="3"/><text x="${40+i*120+j*40}" y="${98+j*30}" text-anchor="middle" font-size="10" font-weight="700">${s2.id}</text>`}).join('')}</svg></div>
  <div class="c"><h3>${t('allSites')}</h3>${st.map(([s,x])=>`<div class="it"><span class="dot" style="background:${C[x.c]}"></span><div class="f"><b>${s.id}</b> <span class="sm mut">· ${s.dist} · ${s.hh.length}/${capOf(s)} ${t('households')}</span></div><span class="sm mut">${s.days}d</span></div>`).join('')}</div>
  <div class="c"><h3>${t('alerts')}</h3>${st.flatMap(([s,x])=>x.iss.map(i=>`<div class="it"><span class="dot" style="background:${i[0]==='r'?'var(--red)':'var(--yellow)'}"></span><div class="f"><b>${s.id}</b> ${t(i[1])}</div></div>`)).join('')||`<div class="sm mut">${t('none')}</div>`}</div>
  <div class="c"><div class="row sp"><h3 style="margin:0">${t('minMode')}</h3><button class="btn sm ${S.min?'':'o'}" onclick="go({min:!S.min})">${S.min?'ON':'OFF'}</button></div><div class="sm mut" style="margin-top:6px">${S.min?t('minOn'):t('minOff')}</div></div>
