@@ -2,7 +2,7 @@
 
 JolSathi is the bilingual (Bangla–English) app of **JolBank**, a system that keeps drinking water from the managed aquifer recharge (MAR) sites of Khulna, Satkhira and Bagerhat tested, protected and fairly shared.
 
-**Live demo:** https://YOUR-USERNAME.github.io/jolsathi/
+**Live demo:** https://tabassummim.github.io/jolsathi/
 
 ## What the demo shows
 - **Family:** today's water status (green, yellow, red), tests behind it, weekly water share, jar orders, where the money goes, and the SMS sent to families without smartphones.
