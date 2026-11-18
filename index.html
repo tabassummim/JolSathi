@@ -27,6 +27,7 @@ main{flex:1;padding:14px;display:flex;flex-direction:column;gap:12px}
 .btn{border:0;border-radius:14px;padding:13px;font-weight:800;width:100%;font-size:15px;background:var(--teal);color:#fff}
 .btn.o{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn.sm{width:auto;padding:8px 12px;font-size:13px;border-radius:10px}
 .btn:disabled{opacity:.4}
+.it>svg{width:28px;height:28px;flex:none}
 .btn svg{width:20px;height:20px;vertical-align:-4px}
 .role{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px;text-align:left;width:100%}
 .role .ic{width:46px;height:46px;border-radius:14px;background:var(--lc);display:grid;place-items:center;flex:none}.ic svg,nav svg{width:26px;height:26px}.ii{display:inline-flex;vertical-align:-5px;margin-right:4px}.ii svg{width:20px;height:20px}.role b{display:block}
@@ -82,7 +83,7 @@ toCheck:'Work to check',spot:'Spot check OK',approvePay:'Approve · pay by bKash
 labT:'Enter lab result',site:'Site',coli:'Coliform bacteria (per 100 mL)',labNote:'Results from the DPHE Khulna zonal laboratory.',
 cap:'This site can safely serve',reg:'Registered',prio:'Priority group',p1:'Poorest household',p2:'Infant or pregnant woman',p3:'Sick or elderly member',p4:'Other',add:'Register household',full:'Site is full. Household goes on the waiting list.',
 capNote:'Capacity = water in × recovery ÷ 15 L per household a day.',
-deliver:'Delivered',deliveries:'Jars to deliver',levyM:'Levy this month',hubFund:'goes to the hub fund',
+deliver:'Delivered',deliveries:'Jars to deliver',levyM:'Levy this month',hubFund:'goes to the hub fund',feeGoes:'Where your fee goes',spend1:'Caretaker and helpers who run the site',spend2:'Water testing at the DPHE laboratory',spend3:'Filter materials and repairs',spend4:'Supervision and independent checks',outT:'Paid out',rem:'Remaining',demoFig:'Demonstration figures for six sites.',nm:'Name',ph:'Phone number',ad:'Address (village, para)',jq:'Number of 20 L jars',fill:'Please fill in name, phone and address.',ordered:'Order placed. The vendor will deliver.',
 allSites:'All sites',alerts:'Alerts',fund:'Hub fund this month',minMode:'Minimum-service mode',minOn:'On: caretaker pay and safety tests continue; helpers, campaigns and sensor upkeep pause.',minOff:'Off: full service.',
 offline:'offline',online:'online',goOff:'Go offline',goOn:'Go online',savedPending:'Saved on this phone. It will send when the signal returns.',synced:'Sent',
 households:'households',daysLeft:'days of water left',iss_ars_r:'Arsenic above 50 µg/L',iss_ars_y:'Arsenic screen 25–49 µg/L',iss_germ:'Germs found',iss_salt_r:'Too salty to drink',iss_salt_y:'Salt is rising',iss_bank_r:'Water bank almost empty',iss_bank_y:'Water bank getting low',iss_filt_r:'Filter blocked',iss_filt_y:'Filter getting slow',iss_pond:'Pond salty or cloudy: keep valve shut'},
@@ -103,7 +104,7 @@ toCheck:'যাচাইয়ের কাজ',spot:'সরেজমিন য�
 labT:'ল্যাব ফল লিখুন',site:'সাইট',coli:'কলিফর্ম জীবাণু (প্রতি ১০০ mL)',labNote:'DPHE খুলনা জোনাল ল্যাবরেটরির ফল।',
 cap:'এই সাইট নিরাপদে সেবা দিতে পারে',reg:'নিবন্ধিত',prio:'অগ্রাধিকার',p1:'সবচেয়ে দরিদ্র পরিবার',p2:'শিশু বা গর্ভবতী নারী',p3:'অসুস্থ বা বয়স্ক সদস্য',p4:'অন্যান্য',add:'পরিবার নিবন্ধন',full:'সাইট পূর্ণ। পরিবার অপেক্ষার তালিকায় গেল।',
 capNote:'ধারণক্ষমতা = ঢোকা পানি × পুনরুদ্ধার ÷ পরিবারপ্রতি দিনে ১৫ লিটার।',
-deliver:'পৌঁছে দিয়েছি',deliveries:'যে জার পৌঁছাতে হবে',levyM:'এই মাসের লেভি',hubFund:'হাব তহবিলে যায়',
+deliver:'পৌঁছে দিয়েছি',deliveries:'যে জার পৌঁছাতে হবে',levyM:'এই মাসের লেভি',hubFund:'হাব তহবিলে যায়',feeGoes:'আপনার ফি কোথায় যায়',spend1:'সাইট পরিচালনাকারী কেয়ারটেকার ও সহকারী',spend2:'DPHE ল্যাবে পানি পরীক্ষা',spend3:'ফিল্টারের উপকরণ ও মেরামত',spend4:'তত্ত্বাবধান ও স্বাধীন যাচাই',outT:'খরচ',rem:'অবশিষ্ট',demoFig:'ছয়টি সাইটের ডেমো হিসাব।',nm:'নাম',ph:'ফোন নম্বর',ad:'ঠিকানা (গ্রাম, পাড়া)',jq:'২০ লিটার জারের সংখ্যা',fill:'নাম, ফোন ও ঠিকানা লিখুন।',ordered:'অর্ডার হয়েছে। বিক্রেতা পৌঁছে দেবেন।',
 allSites:'সব সাইট',alerts:'সতর্কতা',fund:'এই মাসের হাব তহবিল',minMode:'ন্যূনতম সেবা মোড',minOn:'চালু: কেয়ারটেকারের বেতন ও নিরাপত্তা পরীক্ষা চলবে; সহকারী, প্রচার ও সেন্সর রক্ষণাবেক্ষণ বন্ধ।',minOff:'বন্ধ: পূর্ণ সেবা।',
 offline:'অফলাইন',online:'অনলাইন',goOff:'অফলাইন করুন',goOn:'অনলাইন করুন',savedPending:'ফোনে জমা হয়েছে। সংযোগ ফিরলে পাঠানো হবে।',synced:'পাঠানো হয়েছে',
 households:'পরিবার',daysLeft:'দিনের পানি বাকি',iss_ars_r:'আর্সেনিক ৫০ µg/L-এর বেশি',iss_ars_y:'আর্সেনিক ২৫–৪৯ µg/L',iss_germ:'জীবাণু পাওয়া গেছে',iss_salt_r:'পান করার জন্য খুব লবণাক্ত',iss_salt_y:'লবণ বাড়ছে',iss_bank_r:'পানির ব্যাংক প্রায় খালি',iss_bank_y:'পানির ব্যাংক কমছে',iss_filt_r:'ফিল্টার বন্ধ',iss_filt_y:'ফিল্টার ধীর',iss_pond:'পুকুর লবণাক্ত বা ঘোলা: ভালভ বন্ধ রাখুন'}};
@@ -132,7 +133,7 @@ phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>'};
 const I=(n,c='#0099B4')=>`<svg viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg>`;
 const ii=n=>`<span class="ii">${I(n)}</span>`;
 /* ---------- demo data ---------- */
-const KEY='jolsathi_demo_v2';
+const KEY='jolsathi_demo_v3';
 function demo(){
  const mk=(id,dist,ct,inf,rec,days,flow,t,lab,reg)=>({id,dist,ct,inf,rec,days,flow,tests:[t],lab:lab?[lab]:[],hh:reg,orders:[],levyJars:0,tasks:[]});
  const t=(ec,ntu,pond,vial,ars)=>({date:'This week',ec,ntu,pond,vial,ars});
@@ -175,7 +176,12 @@ function jobsFor(s){const st=status(s),j=[];
 /* ---------- ui helpers ---------- */
 const $=id=>document.getElementById(id);
 function toast(m){const e=$('toast');e.textContent=m;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),2400)}
-function go(o){Object.assign(S,o);save();render()}
+let STACK=[];
+function go(o,nohist){const nav=['role','site','tab'].some(k=>k in o&&o[k]!==S[k]);
+ if(nav&&!nohist){STACK.push({role:S.role,site:S.site,tab:S.tab});history.pushState({d:STACK.length},'')}
+ Object.assign(S,o);save();render()}
+window.addEventListener('popstate',()=>{const p=STACK.pop()||{role:null,site:null,tab:0};Object.assign(S,p);save();render()});
+history.replaceState({d:0},'');
 const pend=()=>S.sites.reduce((a,s)=>a+s.tasks.filter(x=>x.q==='pending').length+(s.tests.filter(x=>x.q==='pending').length),0);
 function syncNow(){S.sites.forEach(s=>{s.tasks.forEach(x=>{if(x.q==='pending')x.q='sent'});s.tests.forEach(x=>{if(x.q==='pending')x.q='sent'})})}
 window.addEventListener('online',()=>{if(!S.off){syncNow();save();render();toast(t('synced'))}});
@@ -187,7 +193,7 @@ function header(){
  <div class="ttl">${r?`<b>${t(r)}${s&&r!=='hub'?`<button class="sitechip" onclick="go({site:null,tab:0})">${s.id} ▾</button>`:''}</b><small>${s&&r!=='hub'?s.dist:'JolBank'}</small>`:''}</div>
  ${r&&r!=='family'&&r!=='hub'?`<span class="net ${isOff()?'off':''}" onclick="toggleNet()">${isOff()?t('offline'):t('online')}${pend()?' · '+pend()+' '+t('pending'):''}</span>`:''}
  <button class="hb" onclick="go({lang:S.lang==='en'?'bn':'en'})">${S.lang==='en'?'বাংলা':'EN'}</button>`}
-function back(){go({role:null,site:null,tab:0})}
+function back(){if(STACK.length)history.back();else go({role:null,site:null,tab:0},true)}
 function toggleNet(){S.off=!S.off;if(!S.off){syncNow();toast(t('synced'))}save();render()}
 function navs(list){const n=$('nav');n.hidden=!list;if(!list)return;n.innerHTML=list.map((x,i)=>`<button class="${S.tab===i?'on':''}" onclick="go({tab:${i}})"><b>${I(x[0],S.tab===i?'#0099B4':'#8A9399')}</b>${t(x[1])}</button>`).join('')}
 
@@ -206,14 +212,21 @@ function family(){const s=site(),st=status(s);navs([['home','home'],['jar','jars
   <div class="c"><h3>${t('tested')}</h3><div class="row">${[['salt',x.ec<1500],['germs',x.vial!=='b'],['ars',(st.ars||0)<25]].map(([k,ok])=>`<span class="chip" style="background:${ok?'var(--green)':'var(--red)'}">${ok?'✓':'✕'} ${t(k)}</span>`).join('')}</div></div>
   <div class="c"><div class="row sp"><h3 style="margin:0">${t('share')}</h3><b>105 L</b></div><div class="sm mut" style="margin:4px 0 8px">${t('perDay')}</div><div class="bar"><i style="width:${Math.min(100,me.used/105*100)}%"></i></div><div class="sm mut" style="margin-top:6px">${me.used} L ${t('used')}</div></div>
   <div class="c"><h3>${ii('phone')}${t('smsTitle')}</h3><div class="sms">JolBank: ${s.id} ${t(st.c)}. ${t(msg)}.${st.c==='RED'?' → '+near.id:''}</div></div>`}
- if(S.tab===1){const ok=st.c==='GREEN';return `<div class="c"><h3>${ii('jar')}${t('order')}</h3>${ok?'':`<div class="note w">${t('paused')}</div>`}<div style="margin-top:10px"><button class="btn" ${ok?'':'disabled'} onclick="orderJar()">${t('order')}</button></div></div>
+ if(S.tab===1){const ok=st.c==='GREEN';return `<div class="c"><h3>${ii('jar')}${t('order')}</h3>${ok?'':`<div class="note w">${t('paused')}</div>`}${ok?`<label>${t('nm')}</label><input id="on" value="${S.me?.n||''}"><label>${t('ph')}</label><input id="op" type="tel" value="${S.me?.p||''}"><label>${t('ad')}</label><input id="oa" value="${S.me?.a||''}"><label>${t('jq')}</label><input id="oq" type="number" min="1" value="1">`:''}
+<div style="margin-top:10px"><button class="btn" ${ok?'':'disabled'} onclick="orderJar()">${t('order')}</button></div></div>
   <div class="c"><h3>${t('myOrders')}</h3>${s.orders.filter(o=>o.card===112).map(o=>`<div class="it"><div class="f">${o.jars} × 20 L</div><span class="chip" style="background:${o.st==='done'?'var(--green)':'var(--grey)'}">${o.st==='done'?'✓':'…'}</span></div>`).join('')||`<div class="sm mut">${t('none')}</div>`}</div>`}
- return moneyCard()}
+ return familyMoney()}
+function familyMoney(){return `<div class="c"><h3>${t('feeGoes')}</h3>${['spend1','spend2','spend3','spend4'].map(k=>`<div class="it"><span class="dot" style="background:var(--teal)"></span><div class="f">${t(k)}</div></div>`).join('')}</div><div class="note">${t('pool')}</div>`}
+function hubFund(){const inn=S.sites.length*12813,out=S.paid.reduce((a,p)=>a+p.a,0)+(S.sites.length-1)*4333+S.sites.length*1500,rem=inn-out,po=Math.round(out/inn*100);
+ return `<div class="c"><h3>${t('fund')}</h3><div class="row sp"><div><div class="sm mut">${t('in')}</div><b>Tk ${inn.toLocaleString()}</b></div><div><div class="sm mut">${t('outT')}</div><b>Tk ${out.toLocaleString()}</b></div><div><div class="sm mut">${t('rem')}</div><b>Tk ${rem.toLocaleString()}</b></div></div>
+ <div style="display:flex;height:14px;border-radius:7px;overflow:hidden;margin-top:10px"><i style="width:${po}%;background:var(--teal)"></i><i style="width:${100-po}%;background:var(--cyan)"></i></div>
+ <div class="row sp sm mut" style="margin-top:6px"><span>${t('outT')} ${po}%</span><span>${t('rem')} ${100-po}%</span></div><div class="sm mut" style="margin-top:6px">${t('demoFig')}</div></div>`}
 function moneyCard(){const rows=[['fees',20,'#0099B4'],['levy',12,'#9EECF2'],['donors',16,'#FDE9D4'],['pub',52,'#555555']];
  return `<div class="c"><h3>${t('money')} · ${t('in')}</h3>${rows.map(r=>`<div class="it"><span class="dot" style="background:${r[2]};border:1px solid #ccc"></span><div class="f">${t(r[0])}</div><b>${r[1]}%</b></div>`).join('')}
  <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:6px">${rows.map(r=>`<i style="width:${r[1]}%;background:${r[2]}"></i>`).join('')}</div></div>
- <div class="c"><h3>${t('out')}</h3>${S.paid.slice(-4).reverse().map(p=>`<div class="it"><div class="f">${p.f} · ${p.n}</div><b>Tk ${p.a.toLocaleString()}</b></div>`).join('')}</div><div class="note">${t('pool')}</div>`}
-function orderJar(){const s=site();s.orders.push({card:112,jars:1,st:'new'});save();render();toast('✓')}
+ <div class="note">${t('pool')}</div>`}
+function orderJar(){const n=$('on').value.trim(),p=$('op').value.trim(),a=$('oa').value.trim(),q=Math.max(1,+$('oq').value||1);
+ if(!n||!p||!a)return toast(t('fill'));S.me={n,p,a};const s=site();s.orders.push({card:112,jars:q,st:'new',n,p,a});save();render();toast(t('ordered'))}
 
 function caretaker(){const s=site();navs([['list','today'],['test','tests'],['money','pay']]);
  if(S.tab===0){const jobs=jobsFor(s),open=s.tasks.filter(x=>x.st==='done');
@@ -258,7 +271,7 @@ function saveLab(){const s=S.sites.find(x=>x.id===$('ls').value);s.lab.push({dat
 function addHH(id){const s=S.sites.find(x=>x.id===id);if(s.hh.length>=capOf(s))return toast(t('full'));s.hh.push({card:100+s.hh.length,prio:+$('np').value,used:0});save();render();toast('✓')}
 
 function vendor(){const s=site();navs([['jar','deliveries'],['money','levy']]);
- if(S.tab===0){const ok=status(s).c==='GREEN';return `${ok?'':`<div class="note w">${t('paused')}</div>`}<div class="c"><h3>${t('deliveries')}</h3>${s.orders.filter(o=>o.st==='new').map((o,i)=>`<div class="it">${I('jar')}<div class="f"><b>Card #${o.card}</b> · ${o.jars} jar</div><button class="btn sm" onclick="deliver(${s.orders.indexOf(o)})">${t('deliver')}</button></div>`).join('')||`<div class="sm mut">${t('none')}</div>`}</div>`}
+ if(S.tab===0){const ok=status(s).c==='GREEN';return `${ok?'':`<div class="note w">${t('paused')}</div>`}<div class="c"><h3>${t('deliveries')}</h3>${s.orders.filter(o=>o.st==='new').map((o,i)=>`<div class="it">${I('jar')}<div class="f"><b>${o.n||'Card #'+o.card}</b> · ${o.jars} × 20 L<div class="sm mut">${o.a||''} ${o.p?'· '+o.p:''}</div></div><button class="btn sm" onclick="deliver(${s.orders.indexOf(o)})">${t('deliver')}</button></div>`).join('')||`<div class="sm mut">${t('none')}</div>`}</div>`}
  return `<div class="c"><div class="sm mut">${t('levyM')}</div><div style="font-size:28px;font-weight:800">Tk ${3*s.levyJars}</div><div class="sm">Tk 3 × ${s.levyJars} jars → ${t('hubFund')}</div></div>`}
 function deliver(i){const s=site(),o=s.orders[i];o.st='done';s.levyJars+=o.jars;save();render();toast('Tk '+3*o.jars+' → '+t('hubFund'))}
 
@@ -268,7 +281,7 @@ function hub(){navs(null);const st=S.sites.map(s=>[s,status(s)]),n=c=>st.filter(
  <div class="c"><h3>${t('allSites')}</h3>${st.map(([s,x])=>`<div class="it"><span class="dot" style="background:${C[x.c]}"></span><div class="f"><b>${s.id}</b> <span class="sm mut">· ${s.dist} · ${s.hh.length}/${capOf(s)} ${t('households')}</span></div><span class="sm mut">${s.days}d</span></div>`).join('')}</div>
  <div class="c"><h3>${t('alerts')}</h3>${st.flatMap(([s,x])=>x.iss.map(i=>`<div class="it"><span class="dot" style="background:${i[0]==='r'?'var(--red)':'var(--yellow)'}"></span><div class="f"><b>${s.id}</b> ${t(i[1])}</div></div>`)).join('')||`<div class="sm mut">${t('none')}</div>`}</div>
  <div class="c"><div class="row sp"><h3 style="margin:0">${t('minMode')}</h3><button class="btn sm ${S.min?'':'o'}" onclick="go({min:!S.min})">${S.min?'ON':'OFF'}</button></div><div class="sm mut" style="margin-top:6px">${S.min?t('minOn'):t('minOff')}</div></div>
- ${moneyCard()}`}
+ ${hubFund()}${moneyCard()}`}
 
 function render(){header();let h;
  if(!S.role)h=welcome();else if(S.role==='hub')h=hub();else if(!S.site||S.site==='ALL'){h=pick()}
